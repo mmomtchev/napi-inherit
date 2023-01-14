@@ -35,12 +35,11 @@ Napi::Value Base<T>::Mention(const Napi::CallbackInfo &info) {
 }
 
 template <class T> Napi::Function Base<T>::GetClass(Napi::Env env) {
-  return ObjectWrap<T>::DefineClass(
-      env, "Base",
-      {
-          ObjectWrap<T>::InstanceMethod("greet", &Base::Greet),
-          ObjectWrap<T>::InstanceMethod("mention", &Base::Mention),
-      });
+  return DefineClass(env, "Base",
+                     {
+                         InstanceMethod("greet", &Base::Greet),
+                         InstanceMethod("mention", &Base::Mention),
+                     });
 }
 
 Extended::Extended(const Napi::CallbackInfo &info) : Base(info) {

@@ -1,6 +1,9 @@
-# Inheritance in both C++ and JavaScript with N-API
+# Inheritance in both C++ and JavaScript with Node-API
 
-Currently inheritance of C++ classes exported to JavaScript is not supported officially in N-API / `node-addon-api`.
+### Examples for the medium article:
+[C++ Class Inheritance with Node-API (and node-addon-api)](https://mmomtchev.medium.com/c-class-inheritance-with-node-api-and-node-addon-api-c180334d9902)
+
+Currently inheritance of C++ classes exported to JavaScript is not supported officially in Node-API / `node-addon-api`.
 
 It is the last major show-stopper for porting complex `Nan` projects to `node-addon-api`.
 
@@ -12,7 +15,7 @@ V8 has a specific object model where there are `Object`s and `ObjectTemplate`s. 
 
 The methods shown here are not perfect but they get the job done satisfying all the requirements:
 
-- They use only N-API and they are independent of the Node.js / V8 version used
+- They use only Node-API and they are independent of the Node.js / V8 version used
 - The classes appear to be inherited to the JS end-user (`instanceof` works as expected)
 - The C++ implementations can share method code in a base class
 - They cover the two most common use-cases: C++ inheritance and `EventEmitter` inheritance
